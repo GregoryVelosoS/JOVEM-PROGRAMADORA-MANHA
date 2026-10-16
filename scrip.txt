@@ -1,0 +1,74 @@
+-- CRIAR O BANCO DE DADOS
+CREATE DATABASE db_bercario;
+
+-- DELETAR O BANCO DE DADOS
+DROP DATABASE db_bercario;
+
+-- UTILIZAR UM BANCO PARA OPERAÇÕES
+USE db_bercario;
+
+
+
+-- DELETAR UMA TABELA
+DROP TABLE tb_usuarios;
+
+-- ALTERAR UMA TABELA
+-- ADICIONANDO UME COLUNE
+ALTER TABLE tb_usuarios
+ADD tipo VARCHAR(15);
+
+-- REMOVENDO UMX COLUNX
+ALTER TABLE tb_usuarios
+DROP COLUMN qtd_esposas;
+
+-- CRIAR UMA TABELA
+CREATE TABLE tb_usuarios(
+	id_usuarios INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    dt_nasc DATE, 
+    email VARCHAR(100) NOT NULL, 
+    senha VARCHAR(45) NOT NULL,
+    qtd_esposas BIGINT,
+    esta_ativo TINYINT, 
+    altura DECIMAL(5,2)
+);
+-- /////////////////////////////// -- 
+-- CRIAR 
+INSERT INTO tb_usuarios
+	(id_usuarios, nome, dt_nasc, email, senha, esta_ativo, altura, tipo)
+VALUES
+	(DEFAULT, "Cristiano R.", "1977-07-07","cr7@gmail.com", "7", 1, 1.77, "ADM")
+;
+
+INSERT INTO tb_usuarios
+	(id_usuarios, nome, dt_nasc, email, senha, esta_ativo, altura, tipo)
+VALUES
+	(DEFAULT, "Bruce", "1980-10-10","batman@gmail.com", "eusoubatman", 1, 1.98, "ADM")
+;
+
+INSERT INTO tb_usuarios
+	(id_usuarios, nome, dt_nasc, email, senha, esta_ativo, altura, tipo)
+VALUES
+	(DEFAULT, "Veigh", "2000-08-24","veigh@gmail.com", "veighbaby", 1, 1.80, "usuario")
+;
+
+-- READ = LER
+SELECT * FROM tb_usuarios;
+
+-- UPDATE - ATUALIZAR
+UPDATE tb_usuarios -- ESCOLHE A TABELA
+SET nome = "Bruce Wayne", email = "bruce@gmail.com" -- COLOCA AS COLUNAS E VALORES
+WHERE id_usuarios = 2; -- FILTRA PELO ID, PARA QUE SÓ UM SEJA ATINGIDO
+
+-- DELETE - EXCLUIR UM DADO
+DELETE FROM tb_usuarios -- ESCOLHE A TABELA
+WHERE id_usuarios = 3 -- FILTRA PELO ID, PARA QUE SÓ UM SEJA ATINGIDO;
+
+-- CRIE AS TABELAS DE MAES, MEDICOS E BEBES
+-- INSIRA: 3 MAES, 2 MEDICOS, 5 BEBES
+-- ATUALIZE A MÃE 2 PARA O NOME = "DOUGRAS"
+-- DELETE O BEBE = 2
+
+
+
+
